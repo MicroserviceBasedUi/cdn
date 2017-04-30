@@ -1,0 +1,9 @@
+{
+  "name": "microservices.cdn",
+  "version": "0.0.1",
+  "description": "Serving static files for the microservice driven UI presentation",
+  "main": "index.js",
+  "repository": "https://github.com/MicroserviceBasedUi/cdn.git",
+  "author": "Andreas Caspers <casperli@noreply.users.github.com>",
+  "license": "MIT"
+}
