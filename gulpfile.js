@@ -3,17 +3,20 @@ const del = require('del');
 const fs = require('fs');
 const gutil = require('gulp-util');
 
-let bootstrapVersion = JSON.parse(fs.readFileSync('node_modules/bootstrap/package.json')).version;
+// Bootstrap handling
 
+const bootstrapVersion = JSON.parse(fs.readFileSync('node_modules/bootstrap/package.json')).version;
 gutil.log(`Processing Bootstrap version ${bootstrapVersion}`);
 
+const destFolder = `static/bootstrap/${bootstrapVersion}`;
+
 gulp.task('del:bootstrap', function () {
-    return del([`static/bootstrap/${bootstrapVersion}/**/*`])
+    return del([`${destFolder}/**/*`])
 });
 
 gulp.task('copy:bootstrap', function(){
     gulp.src(['node_modules/bootstrap/dist/*'])
-        .pipe(gulp.dest(`static/bootstrap/${bootstrapVersion}`));
+        .pipe(gulp.dest(`${destFolder}`));
 });
 
 gulp.task('default', ['del:bootstrap' ,'copy:bootstrap']);
