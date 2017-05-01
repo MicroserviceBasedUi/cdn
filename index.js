@@ -5,6 +5,8 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
+const basePath = './static/';
+
 // you can pass the parameter in the command line. e.g. node index.js 3000
 const port = process.argv[2] || 9000;
 http.createServer(function (req, res) {
@@ -12,7 +14,7 @@ http.createServer(function (req, res) {
   // parse URL
   const parsedUrl = url.parse(req.url);
   // extract URL path
-  let pathname = `./static/${parsedUrl.pathname}`;
+  let pathname = `${basePath}${parsedUrl.pathname}`;
   // maps file extention to MIME types
   const mimeType = {
     '.ico': 'image/x-icon',
