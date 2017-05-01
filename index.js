@@ -1,3 +1,5 @@
+// code used from: http://adrianmejia.com/blog/2016/08/24/Building-a-Node-js-static-file-server-files-over-HTTP-using-ES6/
+
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
