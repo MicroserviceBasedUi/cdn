@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/MicroserviceBasedUi/cdn.git",
   "author": "Andreas Caspers <casperli@noreply.users.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
