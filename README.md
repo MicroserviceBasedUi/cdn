@@ -4,5 +4,5 @@
 
 - Clone the repository
 - Install dependencies: ```yarn```
-- (Until build is working): Copy ```node_modules/bootstrap/dist``` to ```static/bootstrap/3.3.7```
+- run ```gulp```, which will copy the CDN files from the ```node_modules``` folder to the ```static``` folder
 - run ```node index.js``` -> default port is 9000, otherwise provide the port as parameter
