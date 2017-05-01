@@ -1,8 +1,11 @@
 const gulp = require('gulp');
 const del = require('del');
+const fs = require('fs');
+const gutil = require('gulp-util');
 
-// read version from bootstrap package.json
-let bootstrapVersion = '3.3.7';
+let bootstrapVersion = JSON.parse(fs.readFileSync('node_modules/bootstrap/package.json')).version;
+
+gutil.log(`Processing Bootstrap version ${bootstrapVersion}`);
 
 gulp.task('del:bootstrap', function () {
     return del([`static/bootstrap/${bootstrapVersion}/**/*`])
