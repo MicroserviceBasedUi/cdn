@@ -6,6 +6,10 @@
   "repository": "https://github.com/MicroserviceBasedUi/cdn.git",
   "author": "Andreas Caspers <casperli@noreply.users.github.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "gulp",
+    "start": "node static/index.js"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7"
   },

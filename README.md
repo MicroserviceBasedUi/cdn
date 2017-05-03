@@ -1,8 +1,30 @@
 # CDN for Microservice Talk
 
-## How to install
+# Prerequisites
+```
+npm install yarn -g
+```
 
-- Clone the repository
-- Install dependencies: ```yarn```
-- run ```gulp```, which will copy the CDN files from the ```node_modules``` folder to the ```static``` folder
-- run ```node index.js``` -> default port is 9000, otherwise provide the port as parameter
+# Build
+On Windows:
+```
+./build.ps1 -target build
+```
+
+On OS X:
+```
+./build.sh --target build
+```
+
+# Run
+This command will run the CDN on port 9000.
+
+On Windows:
+```
+./build.ps1 -target start
+```
+
+On OS X:
+```
+./build.sh --target start
+```
