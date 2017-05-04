@@ -1,4 +1,5 @@
 # CDN for Microservice Talk
+[![Build status](https://ci.appveyor.com/api/projects/status/9agr7n6m4s07bp5w/branch/master?svg=true)](https://ci.appveyor.com/project/lehmamic/cdn/branch/master)
 
 # Prerequisites
 ```
