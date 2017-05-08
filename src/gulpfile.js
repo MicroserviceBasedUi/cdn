@@ -15,7 +15,7 @@ gulp.task('del:bootstrap', function () {
 });
 
 gulp.task('copy:bootstrap', function(){
-    gulp.src(['node_modules/bootstrap/dist/*'])
+    return gulp.src(['node_modules/bootstrap/dist/**/*'])
         .pipe(gulp.dest(`${destFolder}`));
 });
 

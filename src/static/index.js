@@ -53,6 +53,7 @@ http.createServer(function (req, res) {
         const ext = path.parse(pathname).ext;
         // if the file is found, set Content-type and send data
         res.setHeader('Content-type', mimeType[ext] || 'text/plain');
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.end(data);
       }
     });
