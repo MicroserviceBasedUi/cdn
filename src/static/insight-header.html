@@ -2,12 +2,15 @@
     <link rel="stylesheet" href="http://localhost:9000/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost:9000/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="http://localhost:9000/insight/styles.css">
+
     <div class="nav-panel" style="border-bottom-color: #d3d3d3;">
-        <div ng-controller="quickSearchController" class="clearfix ng-scope">
+        <div class="clearfix">
             <a class="pull-left" href="/"><img style="margin-top: 7px;" src="http://localhost:9000/insight/logo.png"></a>
             <div class="pull-left" style="position: relative;">
-                <input id="search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="search-box ng-pristine ng-valid ng-empty ng-touched" type="text" ng-model="term" placeholder="Search...">
-                <img ng-hide="term.length" style="left: 584px; top: 20px; position: absolute; z-index: 99; opacity: 0.5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF6SURBVEhLtZW/LwRBFMfXj0KhuEJCoVBKyEVCQiU6JAp/gM4VCj2F/0EholTQK5UKEgoSokBFQkIi0VCIhs93Zsju5nZ2Zu98kk9m3uX23tuXN3PJf9Pl1iK6sY4LOO3iN/zCIDrdmqcXt/DZrSPYj2t4j4c4hJWYwBvcxB590IQGPuKSiSJQVXpwxkR+9F0VovYFof4e46qJwhhDFdRnohJWUL2NZR137NbPHkb3FAbx2m796EujdhvNK2ryvHy7tQpHOGW3WdLn4An1ulXQcw92myWd4Bx1BmKpOV9MlCOd4BJn7TaKOTyzWz+qQtdA014W8PtM8HCoGp1OPViGDqZGW1dKFBuoqnxXwDCeoiZPp79wRDvcmkdt2kVNlvp7gZ+oVkyihmEbl1HJTnAePzBDUQKhqnTp6b4Zd/EtXuE+KuEA6gx4k7SKCjhAtUur4j/K/tFC0Pzfod5m0a2KzbloRwLhTdJO9MMa83escisEoSQxh7UVkuQHzwZCzk8DQZQAAAAASUVORK5CYII=" width="20" height="20">
+                <input id="search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="search-box"
+                    type="text" placeholder="Search...">
+                <img ng-hide="term.length" style="left: 584px; top: 20px; position: absolute; z-index: 99; opacity: 0.5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAF6SURBVEhLtZW/LwRBFMfXj0KhuEJCoVBKyEVCQiU6JAp/gM4VCj2F/0EholTQK5UKEgoSokBFQkIi0VCIhs93Zsju5nZ2Zu98kk9m3uX23tuXN3PJf9Pl1iK6sY4LOO3iN/zCIDrdmqcXt/DZrSPYj2t4j4c4hJWYwBvcxB590IQGPuKSiSJQVXpwxkR+9F0VovYFof4e46qJwhhDFdRnohJWUL2NZR137NbPHkb3FAbx2m796EujdhvNK2ryvHy7tQpHOGW3WdLn4An1ulXQcw92myWd4Bx1BmKpOV9MlCOd4BJn7TaKOTyzWz+qQtdA014W8PtM8HCoGp1OPViGDqZGW1dKFBuoqnxXwDCeoiZPp79wRDvcmkdt2kVNlvp7gZ+oVkyihmEbl1HJTnAePzBDUQKhqnTp6b4Zd/EtXuE+KuEA6gx4k7SKCjhAtUur4j/K/tFC0Pzfod5m0a2KzbloRwLhTdJO9MMa83escisEoSQxh7UVkuQHzwZCzk8DQZQAAAAASUVORK5CYII="
+                    width="20" height="20">
                 <div id="search-panel" class="drop-shadow" style="display: none; background: white; width: 1120px; z-index: 299; position: absolute; top: 50px; left: 20px; padding: 10px;">
                     <!-- ngRepeat: group in results track by $index -->
                 </div>
@@ -22,12 +25,6 @@
             <a ng-class="{'active': location.path().indexOf('/project-phases') > -1}" href="/project-phases/search">Phases</a>
             <a ng-class="{'active': location.path().indexOf('/career') > -1 || location.path().indexOf('/career') > -1}" href="/career">Career</a>
             <a ng-class="{'active': location.path().indexOf('/adm') > -1}" href="/adm">Deliverables &amp; Capabilities</a>
-            <!-- ngIf: location.path().indexOf('/assets') > -1 -->
-            <!-- ngIf: location.path().indexOf('/skills') > -1 -->
-            <!-- ngIf: location.path().indexOf('/customers') > -1 -->
-            <!-- ngIf: location.path().indexOf('/contacts') > -1 -->
-            <!-- ngIf: location.path().indexOf('/solutions') > -1 -->
-            <!-- ngIf: location.path().indexOf('/media') > -1 -->
             <div class="dropdown" style="display: inline-block;">
                 <a href="#" data-toggle="dropdown">More</a>
                 <ul class="dropdown-menu">
@@ -44,20 +41,18 @@
 </template>
 
 <script type="text/javascript">
-customElements.define('insight-header', class extends HTMLElement {
-  constructor() {
-    super(); // always call super() first in the ctor.
+    customElements.define('insight-header', class extends HTMLElement {
+        constructor() {
+            super(); // always call super() first in the ctor.
 
-    // load the template
-    var template = document.querySelector('link[rel=import]').import.querySelector('#template');
-    var templateBaseUrl = template.baseURI;
-    var clone = document.importNode(template.content, true);
+            // load the template
+            var template = document.querySelector('link[rel=import]').import.querySelector('#template');
+            var templateBaseUrl = template.baseURI;
+            var clone = document.importNode(template.content, true);
 
-    // Attach a shadow root to <insight-header>.
-    const shadowRoot = this.attachShadow({mode: 'open'});
-    shadowRoot.appendChild(clone);
-  }
-
-
-});
+            // Attach a shadow root to <insight-header>.
+            const shadowRoot = this.attachShadow({ mode: 'open' });
+            shadowRoot.appendChild(clone);
+        }
+    });
 </script>
