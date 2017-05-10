@@ -19,4 +19,19 @@ gulp.task('copy:bootstrap', function(){
         .pipe(gulp.dest(`${destFolder}`));
 });
 
-gulp.task('default', ['del:bootstrap' ,'copy:bootstrap']);
+const webcomponentsVersion = JSON.parse(fs.readFileSync('node_modules/webcomponentsjs/package.json')).version;
+gutil.log(`Processing webcomponents version ${webcomponentsVersion}`);
+
+const destwebcomponentsFolder = `static/webcomponentsjs/${webcomponentsVersion}`;
+
+gulp.task('del:webcomponents', function () {
+    return del([`${destwebcomponentsFolder}/**/*`])
+});
+
+gulp.task('copy:webcomponents', function(){
+    return gulp.src(['node_modules/webcomponentsjs/**/*'])
+        .pipe(gulp.dest(`${destwebcomponentsFolder}`));
+});
+
+
+gulp.task('default', ['del:bootstrap' , 'del:webcomponents', 'copy:bootstrap', 'copy:webcomponents']);

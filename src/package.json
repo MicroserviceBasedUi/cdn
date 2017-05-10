@@ -11,7 +11,8 @@
     "start": "node static/index.js"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "webcomponentsjs": "^1.0.2"
   },
   "devDependencies": {
     "del": "^2.2.2",
